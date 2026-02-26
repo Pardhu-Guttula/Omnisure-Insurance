@@ -1,93 +1,89 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~> 4.56.0"
-    }
-  }
-  required_version = ">= 1.1.0"
-}
-
 provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "example" {
+resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
-  location = var.resource_group_location
+  location = var.location
 }
 
-resource "azurerm_app_service_plan" "example" {
-  name                = "example-appserviceplan"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+resource "azurerm_app_service_plan" "asp" {
+  name                = "appserviceplan"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
   sku {
     tier = "Basic"
     size = "B1"
   }
 }
 
-resource "azurerm_app_service" "backend_api" {
-  name                = "example-backend-api"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
-  app_service_plan_id = azurerm_app_service_plan.example.id
+resource "azurerm_app_service" "app" {
+  name                = "appservice"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  app_service_plan_id = azurerm_app_service_plan.asp.id
 }
 
-resource "azurerm_function_app" "example" {
-  name                       = "example-functionapp"
-  location                   = azurerm_resource_group.example.location
-  resource_group_name        = azurerm_resource_group.example.name
-  app_service_plan_id        = azurerm_app_service_plan.example.id
-  storage_account_name       = azurerm_storage_account.example.name
-  storage_account_access_key = azurerm_storage_account.example.primary_access_key
-  os_type                    = "linux"
-  runtime                    = "node"
-  version                    = "~14"
+resource "azurerm_cdn_profile" "example" {
+  name                = "exampleCDNProfile"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  sku                 = "Standard_Verizon"
 }
 
-resource "azurerm_storage_account" "example" {
+resource "azurerm_cdn_endpoint" "example" {
+  name                = "exampleCDNEndpoint"
+  profile_name        = azurerm_cdn_profile.example.name
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  origin {
+    name      = "example"
+    host_name = azurerm_app_service.app.default_site_hostname
+  }
+}
+
+resource "azurerm_function_app" "fa" {
+  name                = "functionapp"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  app_service_plan_id = azurerm_app_service_plan.asp.id
+  storage_account_name = azurerm_storage_account.sa.name
+  storage_account_access_key = azurerm_storage_account.sa.primary_access_key
+  version            = "~3"
+}
+
+resource "azurerm_storage_account" "sa" {
   name                     = "examplestorageacc"
-  resource_group_name      = azurerm_resource_group.example.name
-  location                 = azurerm_resource_group.example.location
+  resource_group_name      = azurerm_resource_group.rg.name
+  location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 
-resource "azurerm_sql_server" "example" {
-  name                         = "sqlserverexample"
-  resource_group_name          = azurerm_resource_group.example.name
-  location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
-  administrator_login          = var.sql_admin_username
-  administrator_login_password = var.sql_admin_password
+resource "azurerm_api_management" "apim" {
+  name                = "exampleAPImanagement"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  publisher_name      = "MyCompany"
+  publisher_email     = "company@example.com"
+  sku_name            = "Developer_1"
 }
 
-resource "azurerm_sql_database" "example" {
-  name                = "example-sqldb"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
-  server_name         = azurerm_sql_server.example.name
-  edition             = "Basic"
-  requested_service_objective_name = "Basic"
-  max_size_gb         = 5
-}
-
-resource "azurerm_cosmosdb_account" "example" {
-  name                = "example-cosmosdb"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
-  offer_type          = "Standard"
-  kind                = "GlobalDocumentDB"
-  consistency_policy {
-    consistency_level = "Session"
+resource "azurerm_monitor_diagnostic_setting" "ads" {
+  name                           = "example-diagnostic-setting"
+  target_resource_id             = azurerm_app_service.app.id
+  log_analytics_workspace_id     = azurerm_log_analytics_workspace.law.id
+  enabled_log {
+    category = "AppServiceHTTPLogs"
+  }
+  metric {
+    category = "AllMetrics"
   }
 }
 
-output "app_service_default_hostname" {
-  value = azurerm_app_service.backend_api.default_site_hostname
-}
-
-output "function_app_default_hostname" {
-  value = azurerm_function_app.example.default_hostname
+resource "azurerm_log_analytics_workspace" "law" {
+  name                = "example-law"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  sku                 = "PerGB2018"
 }
