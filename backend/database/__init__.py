@@ -1,4 +1,4 @@
-# Epic Title: OAuth Integration for Social Logins
+# Epic Title: Password Management
 
 import mysql.connector
 
