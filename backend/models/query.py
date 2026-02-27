@@ -1,6 +1,7 @@
-# Epic Title: As a data analyst, I want to query and report data using PostgreSQL, so that I can generate accurate and actionable insights.
+# Epic Title: As a database administrator, I want to optimize MySQL database queries and implement proper indexing, so that the overall database performance is improved.
 
 class Query:
-    def __init__(self, query_id: int, query_string: str):
+    def __init__(self, query_id: int, sql_query: str, execution_time: float):
         self.query_id = query_id
-        self.query_string = query_string
+        self.sql_query = sql_query
+        self.execution_time = execution_time
