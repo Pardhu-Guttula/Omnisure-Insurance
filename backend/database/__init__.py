@@ -1,11 +1,12 @@
-# Epic Title: User Registration using Email and Password
+# Epic Title: As a user, I want to filter insurance policies.
 
-import mysql.connector
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
 def get_db_connection():
-    return mysql.connector.connect(
+    return psycopg2.connect(
+        dbname='your_db_name',
         user='your_db_user',
         password='your_db_password',
-        host='your_db_host',
-        database='your_db_name'
+        host='your_db_host'
     )
