@@ -1,9 +1,9 @@
-# Epic Title: As a data engineer, I want data encryption in the PostgreSQL database, so that sensitive data is protected at rest.
+# Epic Title: As a user, I want to adhere to secure password policies, so that I can enhance the security of my account.
 
-import psycopg2
+import mysql.connector
 
 def get_db_connection():
-    return psycopg2.connect(
+    return mysql.connector.connect(
         user='your_user',
         password='your_password',
         host='your_host',
