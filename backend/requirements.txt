@@ -1,5 +1,4 @@
 flask==2.0.3
 mysql-connector-python==8.0.26
 werkzeug==2.0.3
-oauthlib==3.1.1
-requests==2.25.1
+smtplib
