@@ -1,4 +1,4 @@
-# Epic Title: As a user, I want to filter insurance policies.
+# Epic Title: As a user, I want to compare insurance policies.
 
 from flask import Flask
 from backend.routes.insurance_policy import insurance_policy_bp
