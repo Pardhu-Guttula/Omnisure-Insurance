@@ -1,9 +1,9 @@
--- Epic Title: OAuth Integration for Social Logins
+-- Epic Title: Password Management
 
 CREATE TABLE User (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
-    password_hash VARCHAR(255),
+    password_hash VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -14,11 +14,10 @@ CREATE TABLE Session (
     FOREIGN KEY (user_id) REFERENCES User(id)
 );
 
-CREATE TABLE OAuth (
-    oauth_provider VARCHAR(255) NOT NULL,
-    oauth_id VARCHAR(255) NOT NULL,
+CREATE TABLE OTP (
+    otp CHAR(6) PRIMARY KEY,
     user_id INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (oauth_provider, oauth_id),
+    expiration TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES User(id)
 );
