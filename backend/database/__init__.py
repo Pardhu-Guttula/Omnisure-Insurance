@@ -1,4 +1,4 @@
-# Epic Title: As a user, I want to enable two-factor authentication, so that I can secure my account with an additional layer of protection.
+# Epic Title: As a mobile user, I want mobile-specific optimizations, so that I can make use of enhanced mobile functionalities.
 
 import mysql.connector
 
