@@ -1,4 +1,4 @@
-# Epic Title: As a shopper, I want the system to handle transactions securely using payment gateway APIs.
+# Epic Title: As a shopper, I want to receive digital policy documents after a successful purchase.
 
 from datetime import datetime
 
