@@ -1,12 +1,12 @@
-# Epic Title: Create travel insurance policy schema in PostgreSQL
+# Epic Title: Create motor insurance policy schema in PostgreSQL
 
 from flask import Flask
-from backend.routes.travel_insurance import travel_insurance_bp
+from backend.routes.motor_insurance import motor_insurance_bp
 
 app = Flask(__name__)
 
 # Register blueprints
-app.register_blueprint(travel_insurance_bp)
+app.register_blueprint(motor_insurance_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
