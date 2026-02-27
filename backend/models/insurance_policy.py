@@ -1,4 +1,4 @@
-# Epic Title: As a policyholder, I want to handle policy renewals in the account management module so that I can renew my policies before they expire.
+# Epic Title: As a policyholder, I want to view my policy history in the account management module so that I can see my past and current policies.
 
 from datetime import datetime
 
@@ -6,7 +6,6 @@ class InsurancePolicy:
     def __init__(self,
                  policy_id: int,
                  policy_holder_name: str,
-                 account_id: int,
                  policy_number: str,
                  policy_type: str,
                  premium_amount: float,
@@ -16,7 +15,6 @@ class InsurancePolicy:
                  end_date: str):
         self.policy_id = policy_id
         self.policy_holder_name = policy_holder_name
-        self.account_id = account_id
         self.policy_number = policy_number
         self.policy_type = policy_type
         self.premium_amount = premium_amount
