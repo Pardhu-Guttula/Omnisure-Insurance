@@ -1,12 +1,11 @@
-# Epic Title: As a shopper, I want to receive digital policy documents after a successful purchase.
+# Epic Title: As a security auditor, I want to perform regular security audits, so that I can identify and mitigate potential security vulnerabilities.
 
-import psycopg2
-from psycopg2.extras import RealDictCursor
+import mysql.connector
 
 def get_db_connection():
-    return psycopg2.connect(
-        dbname='your_db_name',
-        user='your_db_user',
-        password='your_db_password',
-        host='your_db_host'
+    return mysql.connector.connect(
+        user='your_user',
+        password='your_password',
+        host='your_host',
+        database='your_database'
     )
