@@ -1,4 +1,4 @@
-# Epic Title: As an insurer, I want to view interactive dashboards, so that I can get a quick overview of key metrics and actionable insights.
+# Epic Title: As a data analyst, I want to query and report data using PostgreSQL, so that I can generate accurate and actionable insights.
 
 import mysql.connector
 
@@ -8,4 +8,4 @@ def get_db_connection():
         password='your_password',
         host='your_host',
         database='your_database'
-    )
+)
