@@ -1,4 +1,4 @@
-# Epic Title: As a policyholder, I want to track my claims in the account management module so that I can see the status and details of my claims.
+# Epic Title: As a policyholder, I want to handle policy renewals in the account management module so that I can renew my policies before they expire.
 
 from datetime import datetime
 
