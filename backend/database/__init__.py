@@ -1,4 +1,4 @@
-# Epic Title: As a user, I want to filter insurance policies.
+# Epic Title: As a user, I want to compare insurance policies.
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
