@@ -1,4 +1,4 @@
-# Epic Title: As a shopper, I want to access a secure online purchasing system using React.
+# Epic Title: As a shopper, I want to receive digital policy documents after a successful purchase.
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
