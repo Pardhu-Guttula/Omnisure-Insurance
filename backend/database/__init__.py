@@ -1,4 +1,4 @@
-# Epic Title: Create motor insurance policy schema in PostgreSQL
+# Epic Title: Store User Credentials Securely in PostgreSQL
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
