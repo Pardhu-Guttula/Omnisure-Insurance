@@ -1,4 +1,4 @@
-# Epic Title: As a policyholder, I want secure profile management features in the account management module so that I can update my personal and policy details securely.
+# Epic Title: As a policyholder, I want to track my claims in the account management module so that I can see the status and details of my claims.
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
