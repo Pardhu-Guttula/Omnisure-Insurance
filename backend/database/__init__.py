@@ -1,4 +1,4 @@
-# Epic Title: As a user, I want to adhere to secure password policies, so that I can enhance the security of my account.
+# Epic Title: As a user, I want to enable two-factor authentication, so that I can secure my account with an additional layer of protection.
 
 import mysql.connector
 
