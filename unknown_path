@@ -1,5 +1,3 @@
-Given the user stories and requirements for data encryption in a PostgreSQL database, secure key management, and role-based access control, I will implement the necessary backend functionalities to meet these criteria.
+To enforce secure password policies, we will create functionality to validate password complexity and handle password expiry. We need methods in place for creating, validating, and updating passwords to adhere to the given requirements.
 
-Given that we are transitioning from MySQL to PostgreSQL for this specific user story, I'll ensure that the database interactions are adapted accordingly.
-
-Below are the essential files required to implement the functionalities:
+Let's generate the required files step by step:
