@@ -1,14 +1,16 @@
-# Epic Title: As a policyholder, I want to view my policy history in the account management module so that I can see my past and current policies.
+# Epic Title: As a shopper, I want the system to handle transactions securely using payment gateway APIs.
 
 from flask import Flask
 from flask_cors import CORS
-from backend.routes.policy_history import policy_history_bp
+from backend.routes.insurance_policy import insurance_policy_bp
+from backend.routes.transaction import transaction_bp
 
 app = Flask(__name__)
 CORS(app)  # To enable CORS
 
 # Register blueprints
-app.register_blueprint(policy_history_bp)
+app.register_blueprint(insurance_policy_bp)
+app.register_blueprint(transaction_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
