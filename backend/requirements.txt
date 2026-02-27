@@ -1,3 +1,2 @@
 flask==2.0.3
-mysql-connector-python==8.0.26
-werkzeug==2.0.3
+psycopg2-binary==2.9.1
