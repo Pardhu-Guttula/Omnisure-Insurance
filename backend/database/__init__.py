@@ -1,11 +1,12 @@
-# Epic Title: As a developer, I want to implement the agent onboarding UI using React, so that insurance agents have an intuitive interface to register and onboard.
+# Epic Title: As a policyholder, I want secure profile management features in the account management module so that I can update my personal and policy details securely.
 
-import mysql.connector
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
 def get_db_connection():
-    return mysql.connector.connect(
-        user='your_user',
-        password='your_password',
-        host='your_host',
-        database='your_database'
+    return psycopg2.connect(
+        dbname='your_db_name',
+        user='your_db_user',
+        password='your_db_password',
+        host='your_db_host'
     )
