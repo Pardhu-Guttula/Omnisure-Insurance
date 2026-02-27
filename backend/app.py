@@ -1,12 +1,12 @@
-# Epic Title: User Registration using Email and Password
+# Epic Title: As a user, I want to filter insurance policies.
 
 from flask import Flask
-from backend.routes.registration import registration_bp
+from backend.routes.insurance_policy import insurance_policy_bp
 
 app = Flask(__name__)
 
 # Register blueprints
-app.register_blueprint(registration_bp)
+app.register_blueprint(insurance_policy_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
