@@ -1,4 +1,4 @@
-# Epic Title: Create travel insurance policy schema in PostgreSQL
+# Epic Title: Create motor insurance policy schema in PostgreSQL
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
