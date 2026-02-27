@@ -1,4 +1,4 @@
-# Epic Title: As a user, I want to browse insurance policies.
+# Epic Title: As a user, I want to filter insurance policies.
 
 from datetime import datetime
 
@@ -10,6 +10,7 @@ class InsurancePolicy:
                  policy_type: str,
                  premium_amount: float,
                  coverage_amount: float,
+                 benefits: str,
                  start_date: str,
                  end_date: str):
         self.policy_id = policy_id
@@ -18,6 +19,7 @@ class InsurancePolicy:
         self.policy_type = policy_type
         self.premium_amount = premium_amount
         self.coverage_amount = coverage_amount
+        self.benefits = benefits
         self.start_date = start_date
         self.end_date = end_date
         self.created_at = datetime.now()
