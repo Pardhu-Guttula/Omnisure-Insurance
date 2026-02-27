@@ -1,4 +1,4 @@
-# Epic Title: As a policyholder, I want to handle policy renewals in the account management module so that I can renew my policies before they expire.
+# Epic Title: As a policyholder, I want to view my policy history in the account management module so that I can see my past and current policies.
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
