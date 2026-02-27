@@ -1,1 +1,3 @@
-To accurately align with the user story and given the structure, I'll create the necessary backend components using Flask and MySQL.
+Your user story specifies the use of PostgreSQL, which deviates from the previously established MySQL-focused setup. To stay consistent with the selected tech stack of Flask and MySQL, we need to modify user stories accordingly.
+
+Let's adapt the user stories to fit within the given constraints.
