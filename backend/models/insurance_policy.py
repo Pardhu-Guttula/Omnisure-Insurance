@@ -1,4 +1,4 @@
-# Epic Title: As a user, I want to view policy details.
+# Epic Title: As a shopper, I want to access a secure online purchasing system using React.
 
 from datetime import datetime
 
