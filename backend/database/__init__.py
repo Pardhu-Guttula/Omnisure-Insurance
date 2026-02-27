@@ -1,4 +1,4 @@
-# Epic Title: As a frontend developer, I want to implement performance optimization techniques for the React frontend, so that it loads faster and provides a smooth user experience.
+# Epic Title: As an insurer, I want to view interactive dashboards, so that I can get a quick overview of key metrics and actionable insights.
 
 import mysql.connector
 
