@@ -1,5 +1,6 @@
-# Epic Title: As a security auditor, I want to perform regular security audits, so that I can identify and mitigate potential security vulnerabilities.
+# Epic Title: As a data engineer, I want data encryption in the PostgreSQL database, so that sensitive data is protected at rest.
 
 flask==2.0.3
-mysql-connector-python==8.0.26
+psycopg2-binary==2.9.1
+pycryptodome==3.10.1
 flask-cors==3.0.10
