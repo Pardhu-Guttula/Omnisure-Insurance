@@ -1,4 +1,4 @@
-# Epic Title: As a database administrator, I want to optimize MySQL database queries and implement proper indexing, so that the overall database performance is improved.
+# Epic Title: As a frontend developer, I want to implement performance optimization techniques for the React frontend, so that it loads faster and provides a smooth user experience.
 
 flask==2.0.3
 mysql-connector-python==8.0.26
