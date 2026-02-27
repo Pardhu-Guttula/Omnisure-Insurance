@@ -1,3 +1,1 @@
-To enforce secure password policies, we will create functionality to validate password complexity and handle password expiry. We need methods in place for creating, validating, and updating passwords to adhere to the given requirements.
-
-Let's generate the required files step by step:
+We will implement Two-Factor Authentication (2FA) based on the user stories provided. This involves enabling 2FA, generating OTPs, sending OTPs via email or SMS, and validating OTPs within a given time frame. Let's proceed step by step.
