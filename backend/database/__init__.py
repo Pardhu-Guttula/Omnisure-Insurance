@@ -1,4 +1,4 @@
-# Epic Title: As a shopper, I want the system to handle transactions securely using payment gateway APIs.
+# Epic Title: As a user, I want to browse insurance policies.
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
