@@ -1,14 +1,14 @@
-# Epic Title: As a data engineer, I want data encryption in the PostgreSQL database, so that sensitive data is protected at rest.
+# Epic Title: As a user, I want to adhere to secure password policies, so that I can enhance the security of my account.
 
 from flask import Flask
 from flask_cors import CORS
-from backend.routes.encryption import encryption_bp
+from backend.routes.security import security_bp
 
 app = Flask(__name__)
 CORS(app)  # To enable CORS
 
 # Register blueprints
-app.register_blueprint(encryption_bp)
+app.register_blueprint(security_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
