@@ -1,4 +1,5 @@
 flask==2.0.3
-psycopg2-binary==2.9.1
+mysql-connector-python==8.0.26
 werkzeug==2.0.3
-cryptography==3.4.7
+oauthlib==3.1.1
+requests==2.25.1
