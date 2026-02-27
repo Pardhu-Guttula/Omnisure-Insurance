@@ -1,4 +1,4 @@
-# Epic Title: As a mobile user, I want mobile-specific optimizations, so that I can make use of enhanced mobile functionalities.
+# Epic Title: As a mobile user, I want the UI to be responsive and mobile-friendly, so that I can access all features comfortably on various mobile devices.
 
 flask==2.0.3
 mysql-connector-python==8.0.26
