@@ -1,4 +1,4 @@
-# Epic Title: As a shopper, I want to receive digital policy documents after a successful purchase.
+# Epic Title: As a policyholder, I want to track my claims in the account management module so that I can see the status and details of my claims.
 
 from datetime import datetime
 
@@ -6,6 +6,7 @@ class InsurancePolicy:
     def __init__(self,
                  policy_id: int,
                  policy_holder_name: str,
+                 account_id: int,
                  policy_number: str,
                  policy_type: str,
                  premium_amount: float,
@@ -15,6 +16,7 @@ class InsurancePolicy:
                  end_date: str):
         self.policy_id = policy_id
         self.policy_holder_name = policy_holder_name
+        self.account_id = account_id
         self.policy_number = policy_number
         self.policy_type = policy_type
         self.premium_amount = premium_amount
