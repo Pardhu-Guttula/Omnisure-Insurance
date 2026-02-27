@@ -1,4 +1,4 @@
-# Epic Title: As a policyholder, I want to view my policy history in the account management module so that I can see my past and current policies.
+# Epic Title: As a shopper, I want the system to handle transactions securely using payment gateway APIs.
 
 from datetime import datetime
 
