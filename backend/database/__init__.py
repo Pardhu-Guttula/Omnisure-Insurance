@@ -1,4 +1,4 @@
-# Epic Title: As a system administrator, I want to implement load balancing strategies, so that the server load is distributed evenly and system availability is improved.
+# Epic Title: As a system architect, I want to implement caching strategies in both frontend and backend, so that the system can handle a larger number of requests efficiently.
 
 import mysql.connector
 
