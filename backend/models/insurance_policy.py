@@ -1,4 +1,4 @@
-# Epic Title: As a user, I want to compare insurance policies.
+# Epic Title: As a user, I want to view policy details.
 
 from datetime import datetime
 
