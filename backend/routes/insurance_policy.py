@@ -1,4 +1,4 @@
-# Epic Title: As a user, I want to filter insurance policies.
+# Epic Title: As a user, I want to compare insurance policies.
 
 from flask import Blueprint, jsonify, request
 from backend.database import get_db_connection
@@ -68,3 +68,47 @@ def get_policies():
 
     except Exception as e:
         return jsonify({'error': 'Failed to load policies', 'message': str(e)}), 500
+
+@insurance_policy_bp.route('/compare_policies', methods=['POST'])
+def compare_policies():
+    try:
+        data = request.get_json()
+        policy_ids = data.get('policy_ids', [])
+
+        if not policy_ids:
+            return jsonify({'message': 'No policies selected for comparison'}), 400
+
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        query = 'SELECT * FROM InsurancePolicy WHERE policy_id IN %s'
+        cursor.execute(query, (tuple(policy_ids),))
+        policies = cursor.fetchall()
+        cursor.close()
+        conn.close()
+
+        policy_list = []
+        for policy in policies:
+            policy_obj = {
+                'policy_id': policy[0],
+                'policy_holder_name': policy[1],
+                'policy_number': policy[2],
+                'policy_type': policy[3],
+                'premium_amount': policy[4],
+                'coverage_amount': policy[5],
+                'benefits': policy[6],
+                'start_date': policy[7],
+                'end_date': policy[8],
+                'created_at': policy[9],
+                'updated_at': policy[10]
+            }
+            policy_list.append(policy_obj)
+        
+        return jsonify({'policies': policy_list}), 200
+
+    except Exception as e:
+        return jsonify({'error': 'Failed to compare policies', 'message': str(e)}), 500
+
+@insurance_policy_bp.route('/clear_comparison', methods=['POST'])
+def clear_comparison():
+    return jsonify({'message': 'Comparison view cleared'}), 200
