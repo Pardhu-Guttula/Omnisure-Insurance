@@ -1,16 +1,12 @@
-# Epic Title: As a shopper, I want the system to handle transactions securely using payment gateway APIs.
+# Epic Title: As a user, I want to browse insurance policies.
 
 from flask import Flask
-from flask_cors import CORS
 from backend.routes.insurance_policy import insurance_policy_bp
-from backend.routes.transaction import transaction_bp
 
 app = Flask(__name__)
-CORS(app)  # To enable CORS
 
 # Register blueprints
 app.register_blueprint(insurance_policy_bp)
-app.register_blueprint(transaction_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
