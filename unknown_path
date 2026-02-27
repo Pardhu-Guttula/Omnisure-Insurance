@@ -1,3 +1,1 @@
-Your user story specifies the use of PostgreSQL, which deviates from the previously established MySQL-focused setup. To stay consistent with the selected tech stack of Flask and MySQL, we need to modify user stories accordingly.
-
-Let's adapt the user stories to fit within the given constraints.
+Your user story specifies a React-based front-end, which is out of the backend-focused scope provided. Below, I will generate the backend files for CRUD operations and secure access using Flask and MySQL in order to maintain consistency with the tech stack.
