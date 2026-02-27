@@ -1,11 +1,9 @@
-# Epic Title: As a user, I want to adhere to secure password policies, so that I can enhance the security of my account.
-
-from datetime import datetime
+# Epic Title: As a user, I want to enable two-factor authentication, so that I can secure my account with an additional layer of protection.
 
 class User:
-    def __init__(self, user_id: int, username: str, email: str, password_hash: str, password_last_changed: datetime):
+    def __init__(self, user_id: int, name: str, email: str, phone: str, is_2fa_enabled: bool):
         self.user_id = user_id
-        self.username = username
+        self.name = name
         self.email = email
-        self.password_hash = password_hash
-        self.password_last_changed = password_last_changed
+        self.phone = phone
+        self.is_2fa_enabled = is_2fa_enabled
