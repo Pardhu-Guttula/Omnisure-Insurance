@@ -1,4 +1,4 @@
-# Epic Title: Password Management
+# Epic Title: User Login using Email and Password
 
 import mysql.connector
 
