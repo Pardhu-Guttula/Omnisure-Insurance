@@ -1,12 +1,12 @@
-# Epic Title: Create motor insurance policy schema in PostgreSQL
+# Epic Title: Store User Credentials Securely in PostgreSQL
 
 from flask import Flask
-from backend.routes.motor_insurance import motor_insurance_bp
+from backend.routes.user_management import user_management_bp
 
 app = Flask(__name__)
 
 # Register blueprints
-app.register_blueprint(motor_insurance_bp)
+app.register_blueprint(user_management_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
