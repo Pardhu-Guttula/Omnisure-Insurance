@@ -1,16 +1,11 @@
-# Epic Title: User Registration using Email and Password
+# Epic Title: As a user, I want to adhere to secure password policies, so that I can enhance the security of my account.
 
-from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
 class User:
-    def __init__(self, email: str, password: str):
+    def __init__(self, user_id: int, username: str, email: str, password_hash: str, password_last_changed: datetime):
+        self.user_id = user_id
+        self.username = username
         self.email = email
-        self.password_hash = self._generate_password_hash(password)
-        self.created_at = datetime.now()
-
-    def _generate_password_hash(self, password: str) -> str:
-        return generate_password_hash(password)
-
-    def check_password(self, password: str) -> bool:
-        return check_password_hash(self.password_hash, password)
+        self.password_hash = password_hash
+        self.password_last_changed = password_last_changed
