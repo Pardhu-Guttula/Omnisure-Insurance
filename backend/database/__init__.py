@@ -1,9 +1,9 @@
-# Epic Title: As a security auditor, I want to perform regular security audits, so that I can identify and mitigate potential security vulnerabilities.
+# Epic Title: As a data engineer, I want data encryption in the PostgreSQL database, so that sensitive data is protected at rest.
 
-import mysql.connector
+import psycopg2
 
 def get_db_connection():
-    return mysql.connector.connect(
+    return psycopg2.connect(
         user='your_user',
         password='your_password',
         host='your_host',
