@@ -1,4 +1,4 @@
-# Epic Title: User Login using Email and Password
+# Epic Title: OAuth Integration for Social Logins
 
 from datetime import datetime
 from uuid import uuid4
