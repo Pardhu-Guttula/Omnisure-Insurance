@@ -1,12 +1,12 @@
-# Epic Title: As a user, I want to browse insurance policies.
+# Epic Title: Create life insurance policy schema in PostgreSQL
 
 from flask import Flask
-from backend.routes.insurance_policy import insurance_policy_bp
+from backend.routes.life_insurance import life_insurance_bp
 
 app = Flask(__name__)
 
 # Register blueprints
-app.register_blueprint(insurance_policy_bp)
+app.register_blueprint(life_insurance_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
