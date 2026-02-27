@@ -1,39 +1,34 @@
-# Epic Title: User Registration using Email and Password
+# Epic Title: As a developer, I want to implement the agent onboarding UI using React, so that insurance agents have an intuitive interface to register and onboard.
 
 from flask import Blueprint, request, jsonify
-from backend.models.user import User
 from backend.database import get_db_connection
+import re
 
 registration_bp = Blueprint('registration', __name__)
+
+def is_valid_email(email: str) -> bool:
+    return re.match(r"[^@]+@[^@]+\.[^@]+", email) is not None
 
 @registration_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
+
+    name = data.get('name')
     email = data.get('email')
     password = data.get('password')
+
+    if not name or not email or not password:
+        return jsonify({'error': 'All fields are required'}), 400
     
-    if not email or not password:
-        return jsonify({'error': 'Email and Password are required'}), 400
+    if not is_valid_email(email):
+        return jsonify({'error': 'Invalid email format'}), 400
 
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM User WHERE email = %s', (email,))
-    existing_user = cursor.fetchone()
-    
-    if existing_user:
-        return jsonify({'error': 'Duplicate email'}), 400
 
-    if len(password) < 8:  # Simplistic password complexity check
-        return jsonify({'error': 'Password must be at least 8 characters long'}), 400
-
-    new_user = User(email, password)
-
-    cursor.execute(
-        'INSERT INTO User (email, password_hash) VALUES (%s, %s)',
-        (new_user.email, new_user.password_hash)
-    )
+    cursor.execute('INSERT INTO Agent (name, email, password) VALUES (%s, %s, %s)', (name, email, password))
     conn.commit()
     cursor.close()
     conn.close()
 
-    return jsonify({'message': 'User registered successfully'}), 201
+    return jsonify({'message': 'Registration successful'}), 201
